@@ -88,15 +88,15 @@ int main() {
 	int origin, dest, value;
 	
 	//cin number of nodes
-	cout << "enter the number of nodes" << endl;
+	cout << "Enter the number of nodes" << endl;
 	cin >> N;
 	
 	//max edges
-	int max_edges = N * (N - 1);
+	int max_edges = N * (N - 1)/2;
 	
 	//input graph
 	for (int i = 1; i <= max_edges; i++) {
-		cout << "enter the origin and dest and heuristic of the nodes" << endl;
+		cout << "Enter the origin and destination of edge and heuristic value of the destination node" << endl;
 		cin >> origin >> dest >> value;
 
 		if (origin == -1 || dest == -1) {
@@ -115,7 +115,7 @@ int main() {
 	int start, goal;
 
 	//input start and goal
-	cout << "enter the start and goal of the graph" << endl;
+	cout << "Enter the Source Node and Goal Node" << endl;
 	cin >> start >> goal;
 
 	for (int i = 0; i < N; i++) {
@@ -137,21 +137,20 @@ int main() {
 
 
 	struct node n, m;
-	m.index = 0;
+	m.index = start;
 	m.value = heuristic[1];
 	insert(m);
 
 	state[m.index] = visited;
 
 	//best first search
+	cout<<endl<<endl<<"The Optimal Path from Source to Goal is: "<<endl;
 
 	while (!empty()) {
 		n = del();
 		state[n.index] = visited;
 		cout << n.index << " ";
 		if (n.index == goal) {
-			cout << endl;
-			cout << "Goal Reached" << endl;
 			break;
 		}
 		else {
@@ -174,39 +173,39 @@ int main() {
 output
 
 
-enter the number of nodes
+Enter the number of nodes
 14
-enter the origin and dest and heuristic of the nodes
+Enter the origin and destination of edge and heuristic value of the destination node
 0 1 5
-enter the origin and dest and heuristic of the nodes
+Enter the origin and destination of edge and heuristic value of the destination node
 0 2 6
-enter the origin and dest and heuristic of the nodes
+Enter the origin and destination of edge and heuristic value of the destination node
 0 3 3
-enter the origin and dest and heuristic of the nodes
+Enter the origin and destination of edge and heuristic value of the destination node
 1 4 7
-enter the origin and dest and heuristic of the nodes
+Enter the origin and destination of edge and heuristic value of the destination node
 2 5 14
-enter the origin and dest and heuristic of the nodes
+Enter the origin and destination of edge and heuristic value of the destination node
 2 6 12
-enter the origin and dest and heuristic of the nodes
+Enter the origin and destination of edge and heuristic value of the destination node
 3 7 8
-enter the origin and dest and heuristic of the nodes
+Enter the origin and destination of edge and heuristic value of the destination node
 3 8 9
-enter the origin and dest and heuristic of the nodes
+Enter the origin and destination of edge and heuristic value of the destination node
 4 9 6
-enter the origin and dest and heuristic of the nodes
+Enter the origin and destination of edge and heuristic value of the destination node
 4 10 5
-enter the origin and dest and heuristic of the nodes
+Enter the origin and destination of edge and heuristic value of the destination node
 10 11 2
-enter the origin and dest and heuristic of the nodes
+Enter the origin and destination of edge and heuristic value of the destination node
 10 12 10
-enter the origin and dest and heuristic of the nodes
+Enter the origin and destination of edge and heuristic value of the destination node
 10 13 1
-enter the origin and dest and heuristic of the nodes
+Enter the origin and destination of edge and heuristic value of the destination node
 -1 -1 -1
-enter the start and goal of the graph
-0 10
-
+Enter the Source Node and Goal Node
+0
+10
 0 1 1 1 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 1 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 1 1 0 0 0 0 0 0 0
@@ -222,13 +221,11 @@ enter the start and goal of the graph
 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
-//heuristic values
 0 5 6 3 7 14 12 8 9 6 5 2 10 1
 
-//the path
-0 3 1 2 4 10
-Goal Reached
 
+The Optimal Path from Source to Goal is:
+0 3 1 2 4 10
 
 
 */
