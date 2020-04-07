@@ -14,9 +14,6 @@ void dijkstra(int startnode, int g)
 	int distance[MAX], pred[MAX];
 	int visited[MAX], count, mindistance, nextnode, i, j;
 
-	//pred[] stores the predecessor of each node
-	//count gives the number of nodes seen so far
-	//create the cost matrix
 	for (i = 0; i < n; i++)
 		for (j = 0; j < n; j++)
 			if (cost[i][j] == 0)
@@ -25,7 +22,6 @@ void dijkstra(int startnode, int g)
 
 	cout << endl;
 
-	//initialize pred[],distance[] and visited[]
 	for (i = 0; i < n; i++)
 	{
 		distance[i] = cost[startnode][i];
@@ -41,7 +37,7 @@ void dijkstra(int startnode, int g)
 	{
 		mindistance = INFINITY;
 		int temp = INFINITY;
-		//nextnode gives the node at minimum distance
+		
 		for (i = 0; i < n; i++)
 			if (distance[i]+heuristic[i] < temp && !visited[i])
 			{
@@ -50,7 +46,6 @@ void dijkstra(int startnode, int g)
 				nextnode = i;
 			}
 
-		//check if a better path exists through nextnode			
 		visited[nextnode] = 1;
 		for (i = 0; i < n; i++)
 			if (!visited[i])
@@ -62,13 +57,17 @@ void dijkstra(int startnode, int g)
 		count++;
 	}
 
+//print the path:
 
+cout<<"The path is: "<<endl;
 	cout << g;
 	j = g;
 	do {
 		j = pred[j];
 		cout << "<-" << j;
 	} while (j != startnode);
+	
+	
 }
 
 
