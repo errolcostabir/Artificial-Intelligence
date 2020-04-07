@@ -8,7 +8,7 @@ int adj[MAX][MAX];
 int i, j, n;
 int heuristic[MAX];
 
-void dijkstra(int startnode, int g)
+void AStar(int startnode, int g)
 {
 
 	int distance[MAX], pred[MAX];
@@ -95,7 +95,7 @@ int main() {
 	int start, goal;
 	cout << "enter the starting and goal node" << endl;
 	cin >> start >> goal;
-	dijkstra(start, goal);
+	AStar(start, goal);
 
 }
 
